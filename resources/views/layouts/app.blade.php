@@ -6,11 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('page.title')</title>
     @vite('resources/js/app.js')
-
 </head>
 <body>
     @include('partials.header')
-    <main>@yield('page.main')</main>
+
+    <main>
+        @yield('page.main')
+    </main>
+    
     @include('partials.footer')
 </body>
 </html>

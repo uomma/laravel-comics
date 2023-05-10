@@ -1,0 +1,30 @@
+@use 'colors.scss' as *;
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+img.main-logo {
+    width: 5rem;
+    padding: .625rem;
+}
+
+header nav {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 1rem;
+
+    a {
+        text-decoration: none;
+        color: #464648;
+        padding: .875rem;
+        font-weight: bold;
+
+        &:hover {
+            color: $primary-color;
+            box-shadow: 0 .25rem 0 $primary-color;
+        }
+    }
+}

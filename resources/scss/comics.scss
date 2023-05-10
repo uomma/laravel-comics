@@ -1,0 +1,115 @@
+@use 'colors.scss' as *;
+
+main {
+    section.comics-area {
+        div.container {
+            padding: 0;
+        }
+    }
+
+    section.jumbo {
+        background-image: url('/resources/img/jumbotron.jpg');
+        height: 25rem;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    section.comics-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        position: relative;
+
+        .series {
+            align-self: flex-start;
+            position: absolute;
+            top: -20px;
+            left: 80px;
+        }
+
+        div {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+
+    section.features {
+        background-color: $primary-color;
+    
+        div.container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: center;
+        }
+
+        div.feature {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            padding: 2rem;
+            height: 100%;
+        
+            h4 {
+                font-size: 17px;
+                vertical-align: middle;
+                margin-left: 5px;
+            }
+        
+            img {
+                width: 3.125rem;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    div.primary-button {
+        width: 185px;
+        height: 35px;
+        background-color: $primary-color;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+
+        &:hover {
+            background-color: white;
+            color: $primary-color;
+            cursor: pointer;
+        }
+    }
+
+    div.comics-item {
+        color: white;
+        cursor: pointer;
+        align-self: top;
+        padding: 20px;
+        flex-direction: column;
+        height: 100%;
+
+        &:hover {
+            color: $primary-color;
+        }
+
+        h5 {
+            color: inherit;
+            width: 11.25rem;
+            font-size: 1.125rem;
+        }
+
+        img {
+            width: 11.25rem;
+            height: 11.25rem;
+            object-fit: cover;
+            padding: 0;
+
+            &:hover {
+                filter: grayscale(0.5);
+            }
+        }
+    }
+}

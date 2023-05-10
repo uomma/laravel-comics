@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Support\Facades\Route;
@@ -14,50 +15,27 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
-});
-
-Route::get('/characters', function () {
-
-    $films =[
-        'movies' => config('db')
+    $data = [
+        'comics' => config('comics')
     ];
 
-    return view('characters', $films);
-});
+    return view('comics', $data);
+})->name('home');
 
-Route::get('/comics', function () {
-    return view('home');
-});
 
-Route::get('/movies', function () {
-    return view('home');
-});
-
-Route::get('/tv', function () {
-    return view('home');
-});
-
-Route::get('/games', function () {
-    return view('home');
-});
-
-Route::get('/collectibles', function () {
-    return view('home');
-});
-
-Route::get('/videos', function () {
-    return view('home');
-});
-
-Route::get('/fans', function () {
-    return view('home');
-}); 
-
-Route::get('/news', function () {
-    return view('home');
-});
-
-Route::get('/shop', function () {
-    return view('home');
-});
+Route::get('/detail/{index}/', function ($index) {
+    $all_comics = config('comics');
+    if ($index > count($all_comics) - 1) {
+        abort(404);
+    };
+    $comic = $all_comics[$index];
+    $data = [
+        'comic' => $comic,
+        'nav' => config('nav'),
+        'displays' => config('displayer'),
+        'dclist' => config('dccomicslist'),
+        'shoplist' => config('shoplist'),
+        'contacts' => config('contact')
+    ];
+    return view('detail', $data);
+})->where('index', '[0-9]+')->name('comic');
